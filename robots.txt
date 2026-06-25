@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://goodwoodfurniture.chevoorfurniture.com/sitemap.xml
