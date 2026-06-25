@@ -2,20 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Lucide Icons
   lucide.createIcons();
 
-  // 0. Clone Category Cards for Infinite Slider
+  // 0. Clone Cards for Infinite Sliders (Categories and Collections)
   const catTrack = document.querySelector('.categories-track');
   const initialCards = document.querySelectorAll('.category-card');
   if (catTrack && initialCards.length > 0) {
-    const originalCount = initialCards.length;
-    // Clone end items and append
     initialCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      catTrack.appendChild(clone);
+      catTrack.appendChild(card.cloneNode(true));
     });
-    // Clone start items and prepend
     Array.from(initialCards).slice().reverse().forEach(card => {
-      const clone = card.cloneNode(true);
-      catTrack.insertBefore(clone, catTrack.firstChild);
+      catTrack.insertBefore(card.cloneNode(true), catTrack.firstChild);
+    });
+  }
+
+  const colTrack = document.querySelector('.collections-track');
+  const initialColCards = document.querySelectorAll('.collection-card');
+  if (colTrack && initialColCards.length > 0) {
+    initialColCards.forEach(card => {
+      colTrack.appendChild(card.cloneNode(true));
+    });
+    Array.from(initialColCards).slice().reverse().forEach(card => {
+      colTrack.insertBefore(card.cloneNode(true), colTrack.firstChild);
     });
   }
 
@@ -53,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Add hover states for interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .category-card, .collection-card, .detail-card, .dot, .slider-control, .cat-slider-control, .view-all-link');
+    const interactiveElements = document.querySelectorAll('a, button, .category-card, .collection-card, .detail-card, .dot, .slider-control, .cat-slider-control, .col-slider-control, .view-all-link');
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
         document.body.classList.add('hovering-interactive');
@@ -73,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let currentSlide = 0;
   let autoplayTimer = null;
-  const autoplayInterval = 6000; // 6 seconds
+  const autoplayInterval = 2000; // 2 seconds
 
   function goToSlide(index) {
     if (slides.length === 0) return;
@@ -245,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(quoteSection);
   }
 
-  // 5. Categories Section Slider (Infinite loop, Touch/Drag + Nav Buttons)
+  // 5. Categories Section Slider (Infinite loop, Continuous Smooth Scrolling Marquee)
   const catContainer = document.querySelector('.categories-slider-container');
   // catTrack is already defined in DOMContentLoaded scope
   const catCards = document.querySelectorAll('.category-card');
@@ -257,181 +263,293 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalCount = catCards.length / 3; // 5 original items
     
     let isDragging = false;
+    let isHovered = false;
     let startX = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let currentIndex = originalCount; // Start at the first original card (index 5)
+    let translation = 0;
+    const speed = 0.8; // pixels per frame
+    let animationFrameId = null;
     let isTransitioning = false;
 
-    function getCardWidth() {
+    const getCardWidth = () => {
       if (catCards.length === 0) return 0;
       const card = catCards[0];
       const trackStyle = window.getComputedStyle(catTrack);
       const gap = parseFloat(trackStyle.gap) || 0;
       return card.offsetWidth + gap;
-    }
+    };
 
-    function setSliderPosition() {
-      catTrack.style.transform = `translateX(${currentTranslate}px)`;
-    }
+    const originalWidth = () => {
+      return originalCount * getCardWidth();
+    };
 
-    function updateSliderPositionInstant(index) {
-      const cardWidth = getCardWidth();
-      currentIndex = index;
-      currentTranslate = -currentIndex * cardWidth;
-      prevTranslate = currentTranslate;
-      catTrack.style.transition = 'none';
-      setSliderPosition();
-    }
+    const setSliderPosition = () => {
+      catTrack.style.transform = `translateX(${translation}px)`;
+    };
 
-    function updateDimensions() {
-      const cardWidth = getCardWidth();
-      currentTranslate = -currentIndex * cardWidth;
-      prevTranslate = currentTranslate;
-      setSliderPosition();
-      updateProgress();
-    }
+    const updateProgress = () => {
+      if (!catProgressFill) return;
+      const origWidth = originalWidth();
+      if (origWidth === 0) return;
+      const normalizedTranslation = ((translation % origWidth) + origWidth) % origWidth;
+      const pct = (1 - (normalizedTranslation / origWidth)) * 100;
+      catProgressFill.style.width = `${pct}%`;
+    };
 
-    window.addEventListener('resize', updateDimensions);
+    const animate = () => {
+      if (!isDragging && !isHovered && !isTransitioning) {
+        const origWidth = originalWidth();
+        translation -= speed;
+        
+        if (translation <= -origWidth * 2) {
+          translation += origWidth;
+        } else if (translation >= -origWidth) {
+          translation -= origWidth;
+        }
+        
+        setSliderPosition();
+        updateProgress();
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
-    // Touch events
-    catContainer.addEventListener('touchstart', touchStart, { passive: true });
-    catContainer.addEventListener('touchend', touchEnd);
-    catContainer.addEventListener('touchmove', touchMove, { passive: true });
+    const cardWidth = getCardWidth();
+    translation = -originalCount * cardWidth;
+    setSliderPosition();
+    updateProgress();
 
-    // Mouse events
-    catContainer.addEventListener('mousedown', dragStart);
-    catContainer.addEventListener('mouseup', dragEnd);
-    catContainer.addEventListener('mouseleave', dragEnd);
-    catContainer.addEventListener('mousemove', dragMove);
-
-    function dragStart(event) {
+    const dragStart = (event) => {
       if (isTransitioning) return;
       isDragging = true;
-      startX = event.clientX;
-      catContainer.classList.add('grabbing');
+      startX = event.clientX || event.touches[0].clientX;
       catTrack.style.transition = 'none';
-    }
+    };
 
-    function dragMove(event) {
+    const dragMove = (event) => {
       if (!isDragging) return;
-      const currentX = event.clientX;
+      const currentX = event.clientX || event.touches[0].clientX;
       const diffX = currentX - startX;
-      currentTranslate = prevTranslate + diffX;
+      startX = currentX;
+      translation += diffX;
+      
+      const origWidth = originalWidth();
+      if (translation <= -origWidth * 2) {
+        translation += origWidth;
+      } else if (translation >= -origWidth) {
+        translation -= origWidth;
+      }
       setSliderPosition();
-    }
+      updateProgress();
+    };
 
-    function dragEnd() {
-      if (!isDragging) return;
+    const dragEnd = () => {
       isDragging = false;
-      catContainer.classList.remove('grabbing');
-      
-      const cardWidth = getCardWidth();
-      if (cardWidth > 0) {
-        currentIndex = Math.round(-currentTranslate / cardWidth);
-        const maxIndex = catCards.length - 1;
-        if (currentIndex < 0) currentIndex = 0;
-        if (currentIndex > maxIndex) currentIndex = maxIndex;
-        currentTranslate = -currentIndex * cardWidth;
-      }
-      
-      prevTranslate = currentTranslate;
-      
-      isTransitioning = true;
-      catTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-      setSliderPosition();
-      updateProgress();
-    }
+    };
 
-    // Transition end handler to loop seamlessly
-    catTrack.addEventListener('transitionend', () => {
-      isTransitioning = false;
-      catTrack.style.transition = 'none';
-      
-      if (currentIndex >= originalCount * 2) {
-        updateSliderPositionInstant(currentIndex - originalCount);
-      } else if (currentIndex < originalCount) {
-        updateSliderPositionInstant(currentIndex + originalCount);
-      }
-      
-      updateProgress();
-    });
+    catContainer.addEventListener('mousedown', dragStart);
+    window.addEventListener('mousemove', dragMove);
+    window.addEventListener('mouseup', dragEnd);
+
+    catContainer.addEventListener('touchstart', dragStart, { passive: true });
+    window.addEventListener('touchmove', dragMove, { passive: true });
+    window.addEventListener('touchend', dragEnd);
 
     catContainer.addEventListener('mouseenter', () => {
+      isHovered = true;
       document.body.classList.add('hovering-interactive');
     });
     catContainer.addEventListener('mouseleave', () => {
-      if (!isDragging) {
-        document.body.classList.remove('hovering-interactive');
-      }
+      isHovered = false;
+      document.body.classList.remove('hovering-interactive');
     });
 
-    function touchStart(event) {
+    const slideDirection = (dir) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      catTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+      const cWidth = getCardWidth();
+      translation += dir * cWidth;
+      
+      const origWidth = originalWidth();
+      if (translation <= -origWidth * 2) {
+        translation += origWidth;
+      } else if (translation >= -origWidth) {
+        translation -= origWidth;
+      }
+      
+      setSliderPosition();
+      updateProgress();
+      
+      setTimeout(() => {
+        catTrack.style.transition = 'none';
+        isTransitioning = false;
+      }, 600);
+    };
+
+    if (catPrevBtn) {
+      catPrevBtn.addEventListener('click', () => slideDirection(1));
+    }
+    if (catNextBtn) {
+      catNextBtn.addEventListener('click', () => slideDirection(-1));
+    }
+
+    window.addEventListener('resize', () => {
+      const cWidth = getCardWidth();
+      translation = -originalCount * cWidth;
+      setSliderPosition();
+      updateProgress();
+    });
+
+    animate();
+  }
+
+  // 6. Collections Section Slider (Infinite loop, Continuous Smooth Scrolling Marquee)
+  const colContainer = document.querySelector('.collections-slider-container');
+  // colTrack is already defined in DOMContentLoaded scope
+  const colCards = document.querySelectorAll('.collections-track .collection-card');
+  const colPrevBtn = document.querySelector('.col-slider-control.prev');
+  const colNextBtn = document.querySelector('.col-slider-control.next');
+  const colProgressFill = document.querySelector('.collections-progress-fill');
+
+  if (colContainer && colTrack && colCards.length > 0) {
+    const originalCount = colCards.length / 3; // 6 original items
+    
+    let isDragging = false;
+    let isHovered = false;
+    let startX = 0;
+    let translation = 0;
+    const speed = 0.8; // pixels per frame
+    let animationFrameId = null;
+    let isTransitioning = false;
+
+    const getCardWidth = () => {
+      if (colCards.length === 0) return 0;
+      const card = colCards[0];
+      const trackStyle = window.getComputedStyle(colTrack);
+      const gap = parseFloat(trackStyle.gap) || 0;
+      return card.offsetWidth + gap;
+    };
+
+    const originalWidth = () => {
+      return originalCount * getCardWidth();
+    };
+
+    const setSliderPosition = () => {
+      colTrack.style.transform = `translateX(${translation}px)`;
+    };
+
+    const updateProgress = () => {
+      if (!colProgressFill) return;
+      const origWidth = originalWidth();
+      if (origWidth === 0) return;
+      const normalizedTranslation = ((translation % origWidth) + origWidth) % origWidth;
+      const pct = (1 - (normalizedTranslation / origWidth)) * 100;
+      colProgressFill.style.width = `${pct}%`;
+    };
+
+    const animate = () => {
+      if (!isDragging && !isHovered && !isTransitioning) {
+        const origWidth = originalWidth();
+        translation -= speed;
+        
+        if (translation <= -origWidth * 2) {
+          translation += origWidth;
+        } else if (translation >= -origWidth) {
+          translation -= origWidth;
+        }
+        
+        setSliderPosition();
+        updateProgress();
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const cardWidth = getCardWidth();
+    translation = -originalCount * cardWidth;
+    setSliderPosition();
+    updateProgress();
+
+    const dragStart = (event) => {
       if (isTransitioning) return;
       isDragging = true;
-      startX = event.touches[0].clientX;
-      catTrack.style.transition = 'none';
-    }
+      startX = event.clientX || event.touches[0].clientX;
+      colTrack.style.transition = 'none';
+    };
 
-    function touchMove(event) {
+    const dragMove = (event) => {
       if (!isDragging) return;
-      const currentX = event.touches[0].clientX;
+      const currentX = event.clientX || event.touches[0].clientX;
       const diffX = currentX - startX;
-      currentTranslate = prevTranslate + diffX;
+      startX = currentX;
+      translation += diffX;
+      
+      const origWidth = originalWidth();
+      if (translation <= -origWidth * 2) {
+        translation += origWidth;
+      } else if (translation >= -origWidth) {
+        translation -= origWidth;
+      }
       setSliderPosition();
+      updateProgress();
+    };
+
+    const dragEnd = () => {
+      isDragging = false;
+    };
+
+    colContainer.addEventListener('mousedown', dragStart);
+    window.addEventListener('mousemove', dragMove);
+    window.addEventListener('mouseup', dragEnd);
+
+    colContainer.addEventListener('touchstart', dragStart, { passive: true });
+    window.addEventListener('touchmove', dragMove, { passive: true });
+    window.addEventListener('touchend', dragEnd);
+
+    colContainer.addEventListener('mouseenter', () => {
+      isHovered = true;
+      document.body.classList.add('hovering-interactive');
+    });
+    colContainer.addEventListener('mouseleave', () => {
+      isHovered = false;
+      document.body.classList.remove('hovering-interactive');
+    });
+
+    const slideDirection = (dir) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      colTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+      const cWidth = getCardWidth();
+      translation += dir * cWidth;
+      
+      const origWidth = originalWidth();
+      if (translation <= -origWidth * 2) {
+        translation += origWidth;
+      } else if (translation >= -origWidth) {
+        translation -= origWidth;
+      }
+      
+      setSliderPosition();
+      updateProgress();
+      
+      setTimeout(() => {
+        colTrack.style.transition = 'none';
+        isTransitioning = false;
+      }, 600);
+    };
+
+    if (colPrevBtn) {
+      colPrevBtn.addEventListener('click', () => slideDirection(1));
+    }
+    if (colNextBtn) {
+      colNextBtn.addEventListener('click', () => slideDirection(-1));
     }
 
-    function touchEnd() {
-      dragEnd();
-    }
+    window.addEventListener('resize', () => {
+      const cWidth = getCardWidth();
+      translation = -originalCount * cWidth;
+      setSliderPosition();
+      updateProgress();
+    });
 
-    function updateProgress() {
-      if (!catProgressFill) return;
-      let activeOriginalIndex = (currentIndex - originalCount + originalCount) % originalCount;
-      let pct = (activeOriginalIndex / (originalCount - 1)) * 100;
-      if (pct < 0) pct = 0;
-      if (pct > 100) pct = 100;
-      catProgressFill.style.width = `${pct}%`;
-    }
-
-    // Button controls
-    if (catPrevBtn) {
-      catPrevBtn.style.opacity = '1';
-      catPrevBtn.style.pointerEvents = 'auto';
-      catPrevBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex--;
-        const cardWidth = getCardWidth();
-        currentTranslate = -currentIndex * cardWidth;
-        prevTranslate = currentTranslate;
-        
-        catTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-        setSliderPosition();
-        updateProgress();
-      });
-    }
-
-    if (catNextBtn) {
-      catNextBtn.style.opacity = '1';
-      catNextBtn.style.pointerEvents = 'auto';
-      catNextBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex++;
-        const cardWidth = getCardWidth();
-        currentTranslate = -currentIndex * cardWidth;
-        prevTranslate = currentTranslate;
-        
-        catTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-        setSliderPosition();
-        updateProgress();
-      });
-    }
-
-    // Initial position setup (instantly go to index 5)
-    updateSliderPositionInstant(originalCount);
-    // Initial setup
-    updateDimensions();
+    animate();
   }
 });
