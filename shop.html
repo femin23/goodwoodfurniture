@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV1BRDRMX9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV1BRDRMX9');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Custom Handcrafted Furniture | Good Wood Furniture</title>
+  <link rel="icon" type="image/png" href="assets/favi-icon.png">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Browse our premium solid wood furniture collections. Handcrafted luxury dining tables, beds, sofas, wardrobes, and office desks, made with premium teak and rosewood.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Header Bar -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Good Wood Furniture" class="logo-img">
+      </a>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="shop.html" class="nav-item active">Shop</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Shop Hero Section -->
+  <section class="shop-hero">
+    <div class="container">
+      <span class="section-subtitle">OUR COLLECTION</span>
+      <h1 class="section-title">The Premium Catalog</h1>
+      <p class="section-desc">Each piece is handcrafted from selected Teak and Rosewood logs, built for comfort and designed to last generations.</p>
+    </div>
+  </section>
+
+  <!-- Filters & Product Grid Section -->
+  <section class="shop-content-section">
+    <div class="container">
+      
+      <!-- Category Filter Buttons -->
+      <div class="filter-wrap">
+        <button class="filter-btn active" data-filter="all">All Items</button>
+        <button class="filter-btn" data-filter="living">Living</button>
+        <button class="filter-btn" data-filter="dining">Dining</button>
+        <button class="filter-btn" data-filter="bedroom">Bedroom</button>
+        <button class="filter-btn" data-filter="office">Office</button>
+        <button class="filter-btn" data-filter="custom">Custom</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card" data-category="living">
+          <div class="product-image-wrap">
+            <img src="assets/product/1.jpeg" alt="Royal Living Sofa" loading="lazy">
+            <span class="product-tag">Living</span>
+          </div>
+          <div class="product-info">
+            <h3>Royal Chesterfield Sofa</h3>
+            <p class="product-spec">Premium Teak Wood | Custom Velvet Upholstery</p>
+            <p class="product-desc">A classic Chesterfield sofa built with solid teak framing and rich, durable fabric cushioning.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Royal%20Chesterfield%20Sofa." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-category="dining">
+          <div class="product-image-wrap">
+            <img src="assets/product/6.jpeg" alt="Luxury Dining Set" loading="lazy">
+            <span class="product-tag">Dining</span>
+          </div>
+          <div class="product-info">
+            <h3>Luxury Slab Dining Table</h3>
+            <p class="product-spec">Solid Rosewood | 8-Seater Custom Set</p>
+            <p class="product-desc">Showcases the natural live edge of organic premium rosewood with hand-brushed oil finish.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Luxury%20Slab%20Dining%20Table." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-category="bedroom">
+          <div class="product-image-wrap">
+            <img src="assets/product/4.jpeg" alt="Aria Bed Frame" loading="lazy">
+            <span class="product-tag">Bedroom</span>
+          </div>
+          <div class="product-info">
+            <h3>Aria King Size Cot</h3>
+            <p class="product-spec">Premium Teak | Headboard Cushioning</p>
+            <p class="product-desc">Minimalist contemporary design with floating side tables and premium walnut matte polish.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Aria%20King%20Size%20Cot." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-category="living">
+          <div class="product-image-wrap">
+            <img src="assets/product/8.jpeg" alt="Rio TV Credenza" loading="lazy">
+            <span class="product-tag">Living</span>
+          </div>
+          <div class="product-info">
+            <h3>Rio Media Console</h3>
+            <p class="product-spec">Solid Wood | Fluted Design Panel</p>
+            <p class="product-desc">Features exquisite fluted textures, soft-close cabinets, and ample wire-management slots.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Rio%20Media%20Console." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-category="bedroom">
+          <div class="product-image-wrap">
+            <img src="assets/product/10.jpeg" alt="Sienna Luxury Bed" loading="lazy">
+            <span class="product-tag">Bedroom</span>
+          </div>
+          <div class="product-info">
+            <h3>Sienna Tufted Bed</h3>
+            <p class="product-spec">Rosewood Frame | Royal Gold Leaf Accent</p>
+            <p class="product-desc">Deep-buttoned tufted headboard paired with handcarved cabriole legs for a royal bedroom theme.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Sienna%20Tufted%20Bed." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-category="office">
+          <div class="product-image-wrap">
+            <img src="assets/product/7.jpeg" alt="Director Office Table" loading="lazy">
+            <span class="product-tag">Office</span>
+          </div>
+          <div class="product-info">
+            <h3>Executive Director Desk</h3>
+            <p class="product-spec">Teak Wood | Leather Writing Pad Inlay</p>
+            <p class="product-desc">A commanding presence desk with built-in filing cabinet, drawer organizer, and brass details.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Executive%20Director%20Desk." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card" data-category="custom">
+          <div class="product-image-wrap">
+            <img src="assets/product/14.jpeg" alt="Handcrafted Credenza" loading="lazy">
+            <span class="product-tag">Custom</span>
+          </div>
+          <div class="product-info">
+            <h3>Bespoke Handcarved Cabinet</h3>
+            <p class="product-spec">Teak & Rosewood | Intricate CNC Artistry</p>
+            <p class="product-desc">A museum-grade storage cabinet featuring custom doors hand-carved by traditional Kerala woodworkers.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Bespoke%20Handcarved%20Cabinet." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card" data-category="living">
+          <div class="product-image-wrap">
+            <img src="assets/product/9.jpeg" alt="Accent Chair" loading="lazy">
+            <span class="product-tag">Living</span>
+          </div>
+          <div class="product-info">
+            <h3>Ibiza Lounge Chair</h3>
+            <p class="product-spec">Bent Teakwood | Organic Linen Cushion</p>
+            <p class="product-desc">Ergonomic design utilizing layered bentwood technology for ultimate lounge comfort.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Ibiza%20Lounge%20Chair." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product-card" data-category="dining">
+          <div class="product-image-wrap">
+            <img src="assets/product/12.jpeg" alt="Dining Chair" loading="lazy">
+            <span class="product-tag">Dining</span>
+          </div>
+          <div class="product-info">
+            <h3>Rome Cushioned Dining Chair</h3>
+            <p class="product-spec">Rosewood Frame | Stain-resistant Upholstery</p>
+            <p class="product-desc">Sturdy support and sleek mid-century aesthetics make this the perfect fit for family dining.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Rome%20Cushioned%20Dining%20Chair." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product-card" data-category="bedroom">
+          <div class="product-image-wrap">
+            <img src="assets/product/5.jpeg" alt="Modular Wardrobe" loading="lazy">
+            <span class="product-tag">Bedroom</span>
+          </div>
+          <div class="product-info">
+            <h3>Solid Wood 4-Door Wardrobe</h3>
+            <p class="product-spec">Teakwood Frame | Modular Interior Shelves</p>
+            <p class="product-desc">Spacious wardrobe with custom built-in drawers, safety vaults, and full-length brass hinges.</p>
+            <a href="https://wa.me/919746067122?text=Hi,%20I'm%20inquiring%20about%20the%20Solid%20Wood%204-Door%20Wardrobe." target="_blank" class="inquire-btn">
+              <span>Inquire on WhatsApp</span>
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <p class="copyright">&copy; 2026 Good Wood Furniture. All Rights Reserved. Crafted with Passion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="mobile-nav-item" data-nav="home">
+      <i data-lucide="home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-nav-item active" data-nav="shop">
+      <i data-lucide="shopping-bag"></i>
+      <span>Shop</span>
+    </a>
+    <a href="contact.html" class="mobile-nav-item" data-nav="contact">
+      <i data-lucide="phone"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- Floating Contact Buttons -->
+  <div class="floating-contact">
+    <a href="tel:+919746067122" class="floating-btn call-btn" aria-label="Call Us">
+      <i data-lucide="phone"></i>
+    </a>
+    <a href="https://wa.me/919746067122" target="_blank" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+      <i data-lucide="message-square"></i>
+    </a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

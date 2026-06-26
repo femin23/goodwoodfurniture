@@ -15,6 +15,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Good Wood Furniture | Premium Handcrafted Luxury Furniture</title>
+  <link rel="icon" type="image/png" href="assets/favi-icon.png">
 
   <!-- SEO Meta Tags -->
   <meta name="description"
@@ -25,7 +26,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
 
 
 
@@ -74,12 +77,13 @@
   <!-- Header Bar -->
   <header class="header">
     <div class="header-container">
-      <a href="#" class="logo">GOODWOOD</a>
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Good Wood Furniture" class="logo-img">
+      </a>
       <nav class="header-nav">
-        <a href="#" class="nav-item active">Home</a>
-        <a href="#categories" class="nav-item">Catalogs</a>
-        <a href="#showroom-details" class="nav-item">About</a>
-        <a href="#showroom-details" class="nav-item">Contact</a>
+        <a href="index.html" class="nav-item active">Home</a>
+        <a href="shop.html" class="nav-item">Shop</a>
+        <a href="contact.html" class="nav-item">Contact</a>
       </nav>
     </div>
   </header>
@@ -88,13 +92,22 @@
   <section class="hero-section">
     <div class="hero-slider">
       <div class="hero-slide active">
-        <img src="assets/silder/1.png" alt="Handcrafted Luxury Sofa Set" class="hero-img">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/silder/moblie/m1.png">
+          <img src="assets/silder/1.png" alt="Handcrafted Luxury Sofa Set" class="hero-img">
+        </picture>
       </div>
       <div class="hero-slide">
-        <img src="assets/silder/2.png" alt="Premium Wooden Dining Collection" class="hero-img">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/silder/moblie/m2.png">
+          <img src="assets/silder/2.png" alt="Premium Wooden Dining Collection" class="hero-img">
+        </picture>
       </div>
       <div class="hero-slide">
-        <img src="assets/silder/3.png" alt="Elegant Solid Wood Cabinetry" class="hero-img">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/silder/moblie/m3.png">
+          <img src="assets/silder/3.png" alt="Elegant Solid Wood Cabinetry" class="hero-img">
+        </picture>
       </div>
     </div>
 
@@ -121,16 +134,8 @@
         <div class="section-header">
           <span class="section-subtitle">COLLECTIONS</span>
           <h2 class="section-title">Shop by Category</h2>
-          <p class="section-desc">Explore our premium solid wood creations tailored for every space of your lifestyle.</p>
-        </div>
-        <!-- Slider Navigation Buttons -->
-        <div class="categories-nav">
-          <button class="cat-slider-control prev" aria-label="Previous Category">
-            <i data-lucide="chevron-left"></i>
-          </button>
-          <button class="cat-slider-control next" aria-label="Next Category">
-            <i data-lucide="chevron-right"></i>
-          </button>
+          <p class="section-desc">Explore our premium solid wood creations tailored for every space of your lifestyle.
+          </p>
         </div>
       </div>
 
@@ -193,68 +198,7 @@
         </div>
       </div>
 
-      <!-- Slider Progress Indicator -->
-      <div class="categories-progress-bar">
-        <div class="categories-progress-fill"></div>
-      </div>
-    </div>
-  </section>
 
-
-
-  <!-- Collections Section -->
-  <section id="collections" class="collections-section">
-    <div class="container">
-      <div class="collections-header">
-        <h2 class="collections-title">Collections</h2>
-      </div>
-      <div class="collections-grid">
-        <!-- Card 1 -->
-        <div class="collection-card">
-          <div class="collection-image-wrap">
-            <img src="assets/product/1.jpeg" alt="Aria Collection" loading="lazy">
-          </div>
-          <span class="collection-caption">Aria Collection</span>
-        </div>
-        <!-- Card 2 -->
-        <div class="collection-card">
-          <div class="collection-image-wrap">
-            <img src="assets/product/4.jpeg" alt="Sienna Collection" loading="lazy">
-          </div>
-          <span class="collection-caption">Sienna Collection</span>
-        </div>
-        <!-- Card 3 -->
-        <div class="collection-card">
-          <div class="collection-image-wrap">
-            <img src="assets/product/6.jpeg" alt="Rome Collection" loading="lazy">
-          </div>
-          <span class="collection-caption">Rome Collection</span>
-        </div>
-        <!-- Card 4 -->
-        <div class="collection-card">
-          <div class="collection-image-wrap">
-            <img src="assets/product/8.jpeg" alt="Rio Collection" loading="lazy">
-          </div>
-          <span class="collection-caption">Rio Collection</span>
-        </div>
-        <!-- Card 5 -->
-        <div class="collection-card">
-          <div class="collection-image-wrap">
-            <img src="assets/product/10.jpeg" alt="Ibiza Collection" loading="lazy">
-          </div>
-          <span class="collection-caption">Ibiza Collection</span>
-        </div>
-        <!-- Card 6 -->
-        <div class="collection-card">
-          <div class="collection-image-wrap">
-            <img src="assets/product/12.jpeg" alt="Tulum Collection" loading="lazy">
-          </div>
-          <span class="collection-caption">Tulum Collection</span>
-        </div>
-      </div>
-      <div class="collections-footer">
-        <a href="#collections" class="view-all-link">View All Collections</a>
-      </div>
     </div>
   </section>
 
@@ -267,6 +211,77 @@
       </blockquote>
       <cite class="quote-author">- GOOD WOOD FURNITURE</cite>
     </div>
+  </section>
+
+
+
+  <!-- Collections Section -->
+  <section id="collections" class="collections-section">
+    <div class="container">
+      <div class="collections-header-wrap">
+        <h2 class="collections-title">Collections</h2>
+      </div>
+
+      <div class="collections-slider-container">
+        <div class="collections-track">
+          <!-- Card 1 -->
+          <div class="collection-card">
+            <div class="collection-image-wrap">
+              <img src="assets/product/1.jpeg" alt="Aria Collection" loading="lazy">
+            </div>
+            <span class="collection-caption">Aria Collection</span>
+          </div>
+          <!-- Card 2 -->
+          <div class="collection-card">
+            <div class="collection-image-wrap">
+              <img src="assets/product/4.jpeg" alt="Sienna Collection" loading="lazy">
+            </div>
+            <span class="collection-caption">Sienna Collection</span>
+          </div>
+          <!-- Card 3 -->
+          <div class="collection-card">
+            <div class="collection-image-wrap">
+              <img src="assets/product/6.jpeg" alt="Rome Collection" loading="lazy">
+            </div>
+            <span class="collection-caption">Rome Collection</span>
+          </div>
+          <!-- Card 4 -->
+          <div class="collection-card">
+            <div class="collection-image-wrap">
+              <img src="assets/product/8.jpeg" alt="Rio Collection" loading="lazy">
+            </div>
+            <span class="collection-caption">Rio Collection</span>
+          </div>
+          <!-- Card 5 -->
+          <div class="collection-card">
+            <div class="collection-image-wrap">
+              <img src="assets/product/10.jpeg" alt="Ibiza Collection" loading="lazy">
+            </div>
+            <span class="collection-caption">Ibiza Collection</span>
+          </div>
+          <!-- Card 6 -->
+          <div class="collection-card">
+            <div class="collection-image-wrap">
+              <img src="assets/product/12.jpeg" alt="Tulum Collection" loading="lazy">
+            </div>
+            <span class="collection-caption">Tulum Collection</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="collections-footer">
+        <a href="shop.html" class="view-all-link">View All Collections</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Image Banner Section -->
+  <section class="vision-section">
+    <img src="assets/section.png" alt="Good Wood Furniture" class="vision-banner-img">
   </section>
 
   <!-- Showroom & Contact Details Section -->
@@ -351,14 +366,36 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-wrap">
-        <div class="brand-logo">
-          <h2>GOOD WOOD</h2>
-          <span>FURNITURE</span>
-        </div>
         <p class="copyright">&copy; 2026 Good Wood Furniture. All Rights Reserved. Crafted with Passion.</p>
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="mobile-nav-item active" data-nav="home">
+      <i data-lucide="home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-nav-item" data-nav="shop">
+      <i data-lucide="shopping-bag"></i>
+      <span>Shop</span>
+    </a>
+    <a href="contact.html" class="mobile-nav-item" data-nav="contact">
+      <i data-lucide="phone"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- Floating Contact Buttons -->
+  <div class="floating-contact">
+    <a href="tel:+919746067122" class="floating-btn call-btn" aria-label="Call Us">
+      <i data-lucide="phone"></i>
+    </a>
+    <a href="https://wa.me/919746067122" target="_blank" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+      <i data-lucide="message-square"></i>
+    </a>
+  </div>
 
   <script src="app.js"></script>
 </body>

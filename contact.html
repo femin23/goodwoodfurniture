@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV1BRDRMX9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV1BRDRMX9');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Good Wood Furniture Thrissur</title>
+  <link rel="icon" type="image/png" href="assets/favi-icon.png">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Visit our premium solid wood furniture showroom in Chevoor, Thrissur, Kerala. Get directions, contact phone numbers, working hours, or consult our master designers.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Header Bar -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Good Wood Furniture" class="logo-img">
+      </a>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="shop.html" class="nav-item">Shop</a>
+        <a href="contact.html" class="nav-item active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <span class="section-subtitle">VISIT & INQUIRE</span>
+      <h1 class="section-title">Let's Craft Your Dream Space</h1>
+      <p class="section-desc">Have questions about our designs, customizable options, or shipping? Reach out to us or stop by our showroom.</p>
+    </div>
+  </section>
+
+  <!-- Split Info & Form Section -->
+  <section class="contact-content-section">
+    <div class="container split-layout">
+      
+      <!-- Showroom Details (Left) -->
+      <div class="showroom-info-col">
+        <span class="section-subtitle font-sans">SHOWROOM & FACTORY</span>
+        <h2 class="section-title">Experience Pure Artistry</h2>
+        <p class="showroom-desc">Touch the grains, test the comfort, and talk directly to our master craftsmen. We are located in the heart of Thrissur's premium furniture manufacturing district.</p>
+
+        <div class="showroom-details-wrap">
+
+          <!-- Address -->
+          <div class="detail-card">
+            <div class="icon-wrap">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div class="detail-text">
+              <h4>Address</h4>
+              <p>Good Wood Furniture<br>Chevoor PO, Thrissur, Kerala<br>Pincode: 680027</p>
+              <a href="https://maps.app.goo.gl/25rqUrRRNCf3EcNfA?g_st=ac" target="_blank" class="map-link">
+                <span>Open in Google Maps</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Phone Numbers -->
+          <div class="detail-card">
+            <div class="icon-wrap">
+              <i data-lucide="phone"></i>
+            </div>
+            <div class="detail-text">
+              <h4>Phone Numbers</h4>
+              <a href="tel:+919746067122" class="call-link">+91 97460 67122</a>
+              <a href="tel:+919074812591" class="call-link">+91 90748 12591</a>
+            </div>
+          </div>
+
+          <!-- Working Hours -->
+          <div class="detail-card">
+            <div class="icon-wrap">
+              <i data-lucide="clock"></i>
+            </div>
+            <div class="detail-text">
+              <h4>Working Hours</h4>
+              <p>Monday - Sunday: 9:00 AM - 8:00 PM</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Social Action Buttons -->
+        <div class="showroom-actions">
+          <a href="https://wa.me/919746067122" target="_blank" class="btn btn-primary">
+            <i data-lucide="message-square"></i>
+            <span>Chat on WhatsApp</span>
+          </a>
+          <a href="https://www.instagram.com/goodwoodfurniture_?igsh=MWRrZzBzNW5hb2hkZw==" target="_blank" class="btn btn-secondary">
+            <i data-lucide="instagram"></i>
+            <span>Follow on Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Premium Form (Right) -->
+      <div class="contact-form-col">
+        <div class="form-card">
+          <h3>Send a Message</h3>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" required placeholder="e.g., John Doe">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" required placeholder="e.g., +91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="e.g., john@example.com">
+            </div>
+            <div class="form-group">
+              <label for="category">Category of Interest</label>
+              <select id="category">
+                <option value="living">Living Room Furniture</option>
+                <option value="dining">Dining Room Collections</option>
+                <option value="bedroom">Bedroom Sets</option>
+                <option value="office">Office & Study Spaces</option>
+                <option value="custom">Custom Bespoke Design</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" required rows="4" placeholder="Tell us what you are looking for..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary submit-btn">
+              <span>Send Message</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+            <div id="formStatus" class="form-status"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <section class="contact-map-section">
+    <div class="container">
+      <div class="showroom-map-col">
+        <iframe class="map-iframe"
+          src="https://maps.google.com/maps?q=Good%20Wood%20Furniture%20Chevoor%20Thrissur%20Kerala&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <p class="copyright">&copy; 2026 Good Wood Furniture. All Rights Reserved. Crafted with Passion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="mobile-nav-item" data-nav="home">
+      <i data-lucide="home"></i>
+      <span>Home</span>
+    </a>
+    <a href="shop.html" class="mobile-nav-item" data-nav="shop">
+      <i data-lucide="shopping-bag"></i>
+      <span>Shop</span>
+    </a>
+    <a href="contact.html" class="mobile-nav-item active" data-nav="contact">
+      <i data-lucide="phone"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- Floating Contact Buttons -->
+  <div class="floating-contact">
+    <a href="tel:+919746067122" class="floating-btn call-btn" aria-label="Call Us">
+      <i data-lucide="phone"></i>
+    </a>
+    <a href="https://wa.me/919746067122" target="_blank" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+      <i data-lucide="message-square"></i>
+    </a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
