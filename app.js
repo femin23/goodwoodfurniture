@@ -332,9 +332,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 9. FAQ Accordion Handler
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    if (questionBtn) {
-      questionBtn.addEventListener('click', () => {
+    const headerWrap = item.querySelector('.faq-header-wrap') || item.querySelector('.faq-question');
+    if (headerWrap) {
+      headerWrap.style.cursor = 'pointer';
+      headerWrap.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
         
         // Close all other active items
