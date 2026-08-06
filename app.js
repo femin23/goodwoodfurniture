@@ -328,4 +328,51 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1200);
     });
   }
+
+  // 9. FAQ Accordion Handler
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    if (questionBtn) {
+      questionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other active items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('active');
+        } else {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+
+  // 10. Process & FAQ Entrance Animations
+  const processCards = document.querySelectorAll('.process-card');
+  if (processCards.length > 0) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(entry.target,
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' }
+          );
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    processCards.forEach(card => {
+      gsap.set(card, { opacity: 0 });
+      observer.observe(card);
+    });
+  }
 });
+

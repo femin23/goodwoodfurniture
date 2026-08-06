@@ -1527,6 +1527,8 @@ body.hovering-interactive .custom-cursor-follower {
   height: 24px;
 }
 
+}
+
 /* Shift up on mobile to avoid overlapping the bottom navigation bar */
 @media (max-width: 767px) {
   .floating-contact {
@@ -1544,3 +1546,384 @@ body.hovering-interactive .custom-cursor-follower {
     height: 20px;
   }
 }
+
+/* ==========================================================================
+   SEO / AEO / GEO Optimized Components
+   ========================================================================== */
+
+/* Hero Main Title overlay */
+.hero-h1-wrap {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+  width: 90%;
+  max-width: 950px;
+  pointer-events: none;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.hero-subtitle-tag {
+  font-family: var(--font-sans);
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-bg-alt);
+  background: rgba(15, 15, 15, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 767px) {
+  .hero-h1 {
+    font-size: 1.6rem;
+  }
+  .hero-subtitle-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+  }
+}
+
+/* 1. Executive Summary & Key Takeaways (AEO & GEO Direct Answer Extraction) */
+.executive-summary-section {
+  padding: 60px 0;
+  background-color: var(--color-bg-alt);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.executive-summary-card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--border-light);
+  border-left: 5px solid var(--color-accent);
+}
+
+.summary-header {
+  margin-bottom: 25px;
+}
+
+.summary-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.summary-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.summary-intro-p {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.summary-item {
+  background: var(--color-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.summary-item h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary-item p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.internal-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.internal-link:hover {
+  color: var(--color-accent-hover);
+}
+
+/* 2. Process Steps Section */
+.process-section {
+  padding: 90px 0;
+  background-color: var(--color-secondary);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.process-card {
+  background: var(--color-white);
+  padding: 30px 24px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--border-light);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.process-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-medium);
+}
+
+.process-step-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(22, 94, 100, 0.15);
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.process-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  padding-right: 30px;
+}
+
+.process-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. Comparison Table Section (AEO Decision Support) */
+.comparison-section {
+  padding: 90px 0;
+  background-color: var(--color-bg-alt);
+}
+
+.comparison-table-wrap {
+  margin-top: 40px;
+  overflow-x: auto;
+  box-shadow: var(--shadow-medium);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  background: var(--color-white);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.95rem;
+}
+
+.comparison-table th {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.comparison-table th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.comparison-table th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table td:first-child {
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(15, 15, 15, 0.02);
+}
+
+.comparison-table td.good-wood-col {
+  color: var(--color-accent);
+  font-weight: 600;
+  background: rgba(22, 94, 100, 0.04);
+}
+
+/* 4. Structured FAQ Section (AEO Question-Answer Blocks) */
+.faq-section {
+  padding: 90px 0;
+  background-color: var(--color-secondary);
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+.faq-item {
+  background: var(--color-white);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition: var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: rgba(22, 94, 100, 0.3);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.faq-question h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+  padding-right: 20px;
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+  padding: 0 28px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 350px;
+  padding: 0 28px 24px 28px;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* Breadcrumb nav bar for SEO hierarchy */
+.breadcrumb-nav {
+  padding: 15px 0;
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.85rem;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb-list a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.breadcrumb-list a:hover {
+  color: var(--color-accent);
+}
+
+.breadcrumb-separator {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
