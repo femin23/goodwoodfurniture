@@ -1910,132 +1910,94 @@ body.hovering-interactive .custom-cursor-follower {
   }
 }
 
-/* Modern Split-Screen Proof & Heritage Section */
-.modern-experience-section {
+/* Workshop Heritage & Proof Section (Clean Modern Luxury Theme) */
+.proof-section {
   padding: 90px 0;
-  background-color: var(--color-primary); /* Deep Solid Luxury Black (#0F0F0F) */
-  color: var(--color-white);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  overflow: hidden;
+  background-color: var(--color-bg-alt); /* Sand / Warm Beige */
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
-.modern-experience-grid {
+.proof-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 45px;
 }
 
-.modern-experience-text .section-subtitle {
-  color: #20B2AA; /* Vivid Teal */
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.modern-experience-text .section-title {
-  font-family: var(--font-display);
-  font-size: 2.6rem;
-  color: var(--color-white);
-  line-height: 1.25;
-  margin-bottom: 18px;
-}
-
-.modern-experience-text .section-desc {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-}
-
-.modern-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.modern-stat-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 32px 24px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.proof-card {
+  background: var(--color-white);
+  padding: 35px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+  transition: var(--transition-smooth);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
-.modern-stat-box:hover {
-  background: rgba(22, 94, 100, 0.2);
-  border-color: rgba(32, 178, 170, 0.4);
+.proof-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-accent);
 }
 
-.modern-stat-icon {
-  width: 46px;
-  height: 46px;
+.proof-icon-wrap {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: rgba(22, 94, 100, 0.25);
-  color: #20B2AA;
-  display: flex;
+  background: rgba(22, 94, 100, 0.08);
+  color: var(--color-accent);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
 }
 
-.modern-stat-icon svg {
-  width: 22px;
-  height: 22px;
+.proof-icon-wrap svg {
+  width: 24px;
+  height: 24px;
 }
 
-.modern-stat-number {
+.proof-number {
   font-family: var(--font-display);
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  color: var(--color-white);
-  line-height: 1.1;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 10px;
 }
 
-.modern-stat-text {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.45;
-  font-weight: 400;
+.proof-text {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0;
 }
 
 @media (max-width: 991px) {
-  .modern-experience-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .modern-experience-text {
-    text-align: center;
+  .proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 575px) {
-  .modern-stats-grid {
+  .proof-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 16px;
   }
-  
-  .modern-stat-box {
-    padding: 24px 20px;
-    align-items: center;
-    text-align: center;
+
+  .proof-card {
+    padding: 28px 20px;
   }
-  
-  .modern-experience-text .section-title {
-    font-size: 1.8rem;
+
+  .proof-number {
+    font-size: 2rem;
   }
 }
 
