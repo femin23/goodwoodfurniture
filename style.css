@@ -1910,94 +1910,130 @@ body.hovering-interactive .custom-cursor-follower {
   }
 }
 
-/* Workshop Heritage & Proof Section (Clean Modern Luxury Theme) */
+/* Workshop Heritage & Proof Section (Modern Luxury Card Grid) */
 .proof-section {
-  padding: 90px 0;
-  background-color: var(--color-bg-alt); /* Sand / Warm Beige */
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
+  padding: 90px 0 !important;
+  background-color: var(--color-bg-alt) !important; /* Sand / Warm Beige #F3EFE9 */
+  border-top: 1px solid var(--border-light) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.proof-header {
+  text-align: center !important;
+  max-width: 800px !important;
+  margin: 0 auto 45px auto !important;
+}
+
+.proof-header .section-subtitle {
+  color: var(--color-accent) !important; /* Deep Teal #165E64 */
+  display: block !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 12px !important;
+}
+
+.proof-header .section-title {
+  font-family: var(--font-serif) !important;
+  font-size: 2.2rem !important;
+  color: var(--color-primary) !important;
+  line-height: 1.3 !important;
+  margin-bottom: 15px !important;
+}
+
+.proof-header .section-desc {
+  font-size: 1rem !important;
+  color: var(--color-text-muted) !important;
+  line-height: 1.6 !important;
 }
 
 .proof-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  margin-top: 45px;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 25px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .proof-card {
-  background: var(--color-white);
-  padding: 35px 24px;
-  border-radius: 12px;
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-subtle);
-  text-align: center;
-  transition: var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: var(--color-white) !important;
+  padding: 35px 24px !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 10px 30px rgba(15, 15, 15, 0.04) !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .proof-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-medium);
-  border-color: var(--color-accent);
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px rgba(15, 15, 15, 0.08) !important;
+  border-color: var(--color-accent) !important;
 }
 
-.proof-icon-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(22, 94, 100, 0.08);
-  color: var(--color-accent);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
+.proof-icon-box {
+  width: 54px !important;
+  height: 54px !important;
+  border-radius: 50% !important;
+  background: rgba(22, 94, 100, 0.08) !important;
+  color: var(--color-accent) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 18px !important;
 }
 
-.proof-icon-wrap svg {
-  width: 24px;
-  height: 24px;
+.proof-icon-box svg {
+  width: 26px !important;
+  height: 26px !important;
 }
 
 .proof-number {
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  line-height: 1;
-  margin-bottom: 10px;
+  font-family: var(--font-display) !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: var(--color-primary) !important;
+  line-height: 1.1 !important;
+  margin-bottom: 8px !important;
 }
 
 .proof-text {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  font-weight: 500;
-  margin: 0;
+  font-size: 0.9rem !important;
+  color: var(--color-text-muted) !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
 }
 
 @media (max-width: 991px) {
   .proof-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
   }
 }
 
 @media (max-width: 575px) {
   .proof-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 
   .proof-card {
-    padding: 28px 20px;
+    padding: 28px 20px !important;
   }
 
   .proof-number {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
 }
 
